@@ -38,6 +38,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.toggleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //////////////////////////////////////
                 //实现方式一（效果非常好！ 顶部，底部都拉到屏幕可见区域了）
                 for (int i = 0; i < mDatas.size(); i++) {
                     Bean b = mDatas.get(i);
