@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 18; i++) {
             Bean obj = new Bean();
             obj.name = "我是第: " + i + " 个Item";
+            ///////////////////////////
             been.add(obj);
         }
 
