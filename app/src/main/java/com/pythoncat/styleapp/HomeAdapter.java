@@ -40,47 +40,33 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             public void onClick(View v) {
                 //////////////////////////////////////
                 //实现方式一（效果非常好！ 顶部，底部都拉到屏幕可见区域了）
+//                for (int i = 0; i < mDatas.size(); i++) {
+//                    Bean b = mDatas.get(i);
+//                    if (b.check) {
+//                        //收起来
+//                        b.check = false;
+//                        mRecyclerView.smoothScrollToPosition(position);
+//                        notifyItemChanged(i);
+//                    } else if (b.equals(bean)) {
+//                        b.check = !b.check;
+//                        mRecyclerView.smoothScrollToPosition(position);
+//                        notifyItemChanged(i);
+//                    }
+//                }
+//                //实现方式二 (效果很好，且没有动画)
                 for (int i = 0; i < mDatas.size(); i++) {
                     Bean b = mDatas.get(i);
                     if (b.check) {
                         //收起来
                         b.check = false;
                         mRecyclerView.smoothScrollToPosition(position);
-                        notifyItemChanged(i);
+                       notifyDataSetChanged();
                     } else if (b.equals(bean)) {
                         b.check = !b.check;
                         mRecyclerView.smoothScrollToPosition(position);
-                        notifyItemChanged(i);
+                       notifyDataSetChanged();
                     }
                 }
-//                //实现方式二 (顶部效果不佳，顶部的没有拉下来)
-//                for (int i = 0; i < mDatas.size(); i++) {
-//                    Bean b = mDatas.get(i);
-//                    if (b.check) {
-//                        //收起来
-//                        b.check = false;
-//                        mRecyclerView.smoothScrollToPosition(i);
-//                        notifyItemChanged(i);
-//                    } else if (b.equals(bean)) {
-//                        b.check = !b.check;
-//                        mRecyclerView.smoothScrollToPosition(i);
-//                        notifyItemChanged(i);
-//                    }
-//                }
-//                //实现方式三 (不可行！该方式不能隐藏没有被点击的Item)
-//                for (int i = 0; i < mDatas.size(); i++) {
-//                    Bean b = mDatas.get(i);
-//                    if (b.check) {
-//                        //收起来
-//                        b.check = false;
-//                        mRecyclerView.smoothScrollToPosition(position);
-//                        notifyItemChanged(position);
-//                    } else if (b.equals(bean)) {
-//                        b.check = !b.check;
-//                        mRecyclerView.smoothScrollToPosition(position);
-//                        notifyItemChanged(position);
-//                    }
-//                }
             }
         });
         holder.showLayout.setVisibility(bean.check ? View.VISIBLE : View.GONE);
